@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -30,7 +31,14 @@ const routes = [{
                 path: '/mine',
                 name: 'mine',
                 component: () =>
-                    import ('@/views/Mine.vue')
+                    import ('@/views/Mine.vue'),
+                beforeEnter: (to, from, next) => {
+                    if (store.state.isLogin) {
+                        next()
+                    } else {
+                        store.state.loginDialogVisible = true
+                    }
+                }
             }, {
                 path: '/search',
                 name: 'search',
@@ -51,20 +59,34 @@ const routes = [{
         ]
     },
     {
-        path: '/about',
-        name: 'about',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
+        path: '/login',
+        name: 'login',
         component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/AboutView.vue')
+            import ('@/components/mine/LoginDialog.vue'),
     }
 ]
+
 
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes
+})
+
+// 路由全局守卫
+router.beforeEach((to,from,next) =>{
+    if(to.path === '/vmv'){
+        store.state.showControlBar= false
+        // 修改mainHeight高度
+        store.commit('updateMainHeight',true)
+        next()
+    }else{
+        store.state.showControlBar= true
+        // 修改mainHeight高度
+        store.commit('updateMainHeight',false)
+        next()
+    }
+    
 })
 
 export default router

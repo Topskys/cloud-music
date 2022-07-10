@@ -2,12 +2,19 @@
   <div class="Music">
     <Swiper/>
     <Recommend/>
+    <Express/>
+    <TopArtists/>
+    <TopList/>
   </div>
 </template>
 
 <script>
 import Swiper from '@/components/music/Swiper.vue'
 import Recommend from '@/components/music/Recommend.vue'
+import Express from '@/components/music/Express.vue'
+import TopArtists from '@/components/music/TopArtists.vue'
+import TopList from '@/components/music/TopList.vue'
+import {mapMutations} from 'vuex'
 export default {
     name:'Music',
     data(){
@@ -18,6 +25,16 @@ export default {
     components:{
         Swiper,
         Recommend,
+        Express,
+        TopArtists,
+        TopList,
+    },
+    created(){
+      // 初始化播放列表的sessionStorage
+      this.setPlaylistSession()
+    },
+    methods: {
+    ...mapMutations(['setPlaylistSession'])// 解构方法
     }
 }
 </script>

@@ -1,10 +1,10 @@
 
 <template>
     <div class="Rectangle">
-        <div class="top" @click="goPlay(rectangle.id || rectangle.vid)"><img
+        <div class="top" @click="goPlay(rectangle.id || rectangle.vid,rectangle.type)"><img
                 :src="rectangle.coverUrl || rectangle.cover" :alt="rectangle.id || rectangle.vid"><i
-                class="fa fa-play pointer" @click='goPlay(rectangle.id || rectangle.vid)'></i></div>
-        <div class="down" @click="goPlay(rectangle.id || rectangle.vid)">{{ rectangle.title || rectangle.name }}</div>
+                class="fa fa-play pointer" @click='goPlay(rectangle.id || rectangle.vid,rectangle.type)'></i></div>
+        <div class="down" @click="goPlay(rectangle.id || rectangle.vid,rectangle.type)">{{ rectangle.title || rectangle.name }}</div>
     </div>
 </template>
 
@@ -25,11 +25,12 @@ export default {
             }
         },
         // 前往歌单详情的回调
-        goPlay(id) {
+        goPlay(id,type) {
             this.isId(id)
             this.$router.push({
                 path: '/vmv', query: {
                     id: id,
+                    type:type,
                 }
             })
             this.beforeId = id

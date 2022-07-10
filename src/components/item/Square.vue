@@ -45,28 +45,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .Square {
     // max-width: 100%;
     border-radius: 10px;
+height:100%;
 
     .top {
-
         // 父级相对定位
         position: relative;
         border-radius: 10px;
-        transition: all .2s linear;
+        transition: all .3s linear;
 
         &:hover {
             color: white;
-            // background-color:#335eea;
-            transform: scale(1.07);
+            transform: scale(1.0);
             /* 盒子阴影 */
             box-shadow: 4px 20px 40px 5px rgba(0, 0, 0, .1);
         }
 
         img {
-            display: block;
+            // display: block;
             width: 100%;
+
             // min-height: 180px;
             // max-height: 25rem;
             background-position: center;
@@ -92,7 +93,6 @@ export default {
             .fa {
                 display: block;
             }
-
             z-index: 500;
             box-shadow: 0 2px 10px 0 grey;
         }

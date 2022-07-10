@@ -4,8 +4,8 @@
     <div class="left w-h r-flex">
       <div class="logo"><a href="/" style="color: #000">CloudMusic</a></div>
       <div class="arrow">
-        <i class="fa fa-chevron-left" @click="$router.go(-1)"></i>
-        <i class="fa fa-chevron-right" @click="$router.go(1)"></i>
+        <i class="fa-pg fa fa-chevron-left" @click="$router.go(-1)"></i>
+        <i class="fa-pg fa fa-chevron-right" @click="$router.go(1)"></i>
       </div>
     </div>
     <!-- 中 -->
@@ -49,7 +49,7 @@ export default {
         this.$message.warning('关键词不能为空')
         return
       }
-      // 这种方式在配置路由路径只需'/search' 不要加 '/:keywords'
+      // 这种方式在配置路由 路径 只需'/search' 不要加 '/:keywords'
       // 获取：this.$route.query.keywords
       this.$router.push({
         path: '/search',
@@ -63,6 +63,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
 .TopBar {
   position: fixed;
   top: 0;
@@ -74,8 +75,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   //  设置背景透明
-  
-  background-color: rgba(0, 0, 0, 0.01);
+  // background-color: rgba(0, 0, 0, 0.5);
 
   .w-h {
     width: calc(100vw / 3);
@@ -100,8 +100,8 @@ export default {
 
       .fa {
         font-size: 16px;
-        padding: 5px;
-        border-radius: 5px;
+        // padding: 5px;
+        // border-radius: 5px;
 
         &:first-child {
           margin-right: 10px;
@@ -123,7 +123,7 @@ export default {
 
     a {
       color: black;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 600;
       // 不让文字换行
       white-space: nowrap;

@@ -67,7 +67,15 @@ a {
     font-weight: 600;
 }
 
-
+.fa-pg{
+    padding:10px;
+    border-radius: 10px;
+    transition: all .3s linear;
+}
+.fa-pg:hover {
+    background-color: whitesmoke;
+    transform: scale(0.9);
+}
 /* 颜色 */
 
 .color1 {
@@ -133,10 +141,29 @@ a {
 }
 
 
+/* 文字和背景一起透明<1 */
+
+.opacity68 {
+    opacity: 0.68;
+}
+
+.opacity88 {
+    opacity: 0.88;
+}
+
+
 /* 背景颜色 */
+
+.bg1 {
+    background-color: #EAEFFD;
+}
 
 .bgc-1 {
     background-color: whitesmoke;
+}
+
+.bgc2 {
+    background-color: #abb7dc;
 }
 
 
@@ -153,12 +180,24 @@ img {
 
 /* 边框圆角 */
 
+.br5 {
+    border-radius: 5px;
+}
+
 .br10 {
     border-radius: 0.625rem;
 }
 
+.br15 {
+    border-radius: 15px;
+}
+
 .br20 {
     border-radius: 20px;
+}
+
+.br25 {
+    border-radius: 25px;
 }
 
 
@@ -203,7 +242,9 @@ img {
 .mg10-0 {
     margin: 10px 0;
 }
-
+.mg15-0 {
+    margin: 15px 0;
+}
 .mg20-0 {
     margin: 20px 0;
 }
@@ -324,6 +365,9 @@ img {
 }
 
 .pg10-5 {
+    padding: 10px 5px;
+}
+.pg5-10 {
     padding: 5px 10px;
 }
 

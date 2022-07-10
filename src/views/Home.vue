@@ -4,13 +4,16 @@
     <TopBar />
     <!-- 路由显示 -->
     <div style="height: 60px;"></div>
-    <div class="home-router">
-      <keep-alive>
+    <div class="home-router" :style="{ '--height': `${mainHeight}`}">
+      <!-- include - 字符串或正则表达式。只有名称name匹配的组件会被缓存。 -->
+      <!-- exclude - 字符串或正则表达式。不保留的缓存，任何名称匹配的组件都不会被缓存。 -->
+      <!-- max - 数字。最多可以缓存多少组件实例。 -->
+      <keep-alive exclude="VMV Search Sheet">
         <router-view></router-view>
       </keep-alive>
     </div>
     <!-- 底部控制 -->
-    <ControlBar />
+    <ControlBar v-show="$store.state.showControlBar" />
   </div>
 </template>
 
@@ -19,13 +22,16 @@
 // 引入home组件
 import ControlBar from '@/components/home/ControlBar.vue'
 import TopBar from '@/components/home/TopBar.vue'
-
+import { mapState, mapMutations} from 'vuex'
 export default {
   name: 'Home',
   components: {
     ControlBar,
     TopBar,
-  }
+  },
+  computed:{
+    ...mapState(['mainHeight']),
+  },
 }
 </script>
 
@@ -34,7 +40,7 @@ export default {
 .home-router {
   overflow: auto;
   /* 整个滚动条活动范围 */
-  height: calc(100vh - 60px - 66px );  
+  height: calc(var(--height));  
 }
 
 

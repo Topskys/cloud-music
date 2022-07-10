@@ -11,14 +11,14 @@
         </div>
         <div class="introduction  color1 mg20-0">{{ playlist.description }}</div>
         <div class="btn r-flex mb30">
-          <div class='play fs20 pg10-15 bgc-1 mr20 br10 pointer' @click="playMusic()"><i
-              class="fa fa-play mr10 "></i>播放</div>
-          <div class='like pg10-15 bgc-1 br10 pointer'><i class="fa fa-heart-o" v-if="like"></i><i class="fa fa-heart"
-              v-else></i></div>
+          <div class='play fs20 pg5-10 bgc-1 mr20 br10 pointer' @click="playMusic()"><i class="fa fa-play mr10 "></i>播放
+          </div>
+          <div class='like fs20 pg5-10 bgc-1 br10 pointer'><i class="fa fa-heart-o" v-if="like"></i><i
+              class="fa fa-heart" v-else></i></div>
         </div>
       </div>
     </div>
-    <SongTable :music='songs' @playMusic='playMusic'/>
+    <SongTable :music='songs' @playMusic='playMusic' />
     <!-- <GoTop scrollObj=".Sheet" /> -->
   </div>
 </template>
@@ -37,6 +37,7 @@ export default {
       songs: [],// 歌单歌曲
       beforeSheetId:0,// 上一个单id
       like: true,
+      ids:[],
     }
   },
   components: {
@@ -45,18 +46,32 @@ export default {
   },
   mounted() {
     this.getSheetDetail()
+    // const million = 1000000;
+    // const arr = Array(million);
+
+    // 注：这是稀疏数组，应该为其指定内容，否则不同方式的循环对其的处理方式会不同：
+    // const arr = [...Array(million)]
+
+    // console.time('⏳');
+    // for (let i =0 ; i <arr.length ; i++) { } // for(倒序)  :- 1.5ms  3.5ms
+    // for (let i = 0; i < arr.length; i++) { } // for          :- 1.6ms
+    // arr.forEach(v => v)                     // foreach      :- 2.1ms   8ms
+    // for (const v of arr) { }                 // for...of     :- 11.7ms
+    // console.timeEnd('⏳');
+    
   },
   methods: {
+    // 解构
     ...mapMutations(['updatePlaylist', 'changePlaylistIndex','changeAutoPlay']),
+    // 播放音乐的回调
     playMusic(row){
       if (this.beforeSheetId!=this.$route.query.id ){
         this.beforeSheetId=this.$route.query.id
-        this.updatePlaylist(this.songs)// 更新播放列表
+        this.updatePlaylist(this.ids)// 更新播放列表
+        this.changePlaylistIndex(0)// 改变播放索引
       }
       if(row){
         this.changePlaylistIndex(row.index )// 改变播放索引
-      }else{
-        this.changePlaylistIndex(0 )// 改变播放索引
       }
       this.changeAutoPlay(true) // 开启自动播放
     },
@@ -69,17 +84,18 @@ export default {
       // console.log(res.playlist)
       // 格式化更新日期1
       this.playlist.updateTime = dateTime(new Date(res.playlist.updateTime))
-      sessionStorage.setItem('playlist', JSON.stringify(this.playlist))
-      this.getSheetSongs()//res.playlist.trackCount
+      this.$resetSetItem('playlist', JSON.stringify(this.playlist))
+      this.getSheetSongs(res.playlist.trackCount)//
     },
     
     // 获取歌单歌曲
-    async getSheetSongs(limit=100,offset=0){
+    async getSheetSongs(limit=20,offset=0){
       let res = await this.$api.music.reqSheetSongs(this.$route.query.id,limit,offset)
       this.songs=res.songs
       // 格式化歌曲播放时间
       this.songs.forEach((item, index) => {
         this.songs[index].dt = resetMin(item.dt);
+        this.ids[index] = item.id
       });
       
     }, 
@@ -112,6 +128,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 
 
 @media screen and (max-width: 1200px) {
@@ -170,22 +188,21 @@ export default {
   .btn {
     align-items:center;
     .play {
-      transition: all .2s linear;
-
+      transition: all .3s linear;
       &:hover {
         color:white;
         background-color:#335eea;
-        transform: scale(1.07);
+        transform: scale(0.9);
         /* 盒子阴影 */
         box-shadow: 4px 20px 40px 5px rgba(0, 0, 0, .1);
       }
     }
 
     .like {
-      transition: all .2s linear;
+      transition: all .3s linear;
 
       &:hover {
-        transform: scale(1.07);
+        transform: scale(0.9);
         /* 盒子阴影 */
         box-shadow: 4px 20px 40px 5px rgba(0, 0, 0, .1);
       }

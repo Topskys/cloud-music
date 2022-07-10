@@ -6,7 +6,19 @@ export const reqBanner = (type = 0) => request({ url: `/banner?type=${type}`, me
 
 
 // 获取推荐歌单
-export const reqRecommend = (limit = 10) => request({ url: `/top/playlist?limit=${limit}`, method: 'GET' })
+export const reqRecommend = (limit = 10, offset = (Math.random() * 50).toFixed(0)) => request({ url: `/top/playlist?limit=${limit}&offset=${offset}`, method: 'GET' })
+
+
+// 获取新歌速递 0：全部地区类型
+export const reqNewSong = (limit = 10) => request({ url: `/personalized/newsong?limit=${limit}`, method: 'GET' })
+
+// 获取热门歌手
+export const reqTopArtist = (offset = 0, limit = 5) => request({ url: `/top/artists?offset=${offset}&limit=${limit}`, method: 'GET' })
+
+// 
+
+// 获取排行榜歌单
+export const reqTopList = () => request({ url: `toplist`, method: 'GET' })
 
 
 // 获取歌单详情
