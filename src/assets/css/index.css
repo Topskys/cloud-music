@@ -1,0 +1,569 @@
+/* 引入font-awesome图标 */
+/* 在线引入 */
+/* @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css); */
+/* 本地引入 */
+@import '@/assets/icon/font-awesome-4.7.0/css/font-awesome.min.css';
+
+/* 全局css样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 不允许用户选中文本 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+
+/* 定义全局变量 */
+:root {
+    --color-primary: #335eea;
+    --color-body-bg: #fff;
+    --color-text: #000;
+    --color-primary-bg: #eaeffd;
+    --color-secondary: #7a7a7b;
+    --color-secondary-bg: #f5f5f7;
+    --color-navbar-bg: hsla(0, 0%, 100%, 0.86);
+    --color-primary-bg-for-transparent: rgba(189, 207, 255, 0.28);
+    --color-secondary-bg-for-transparent: rgba(209, 209, 214, 0.28);
+    --html-overflow-y: overlay;
+}
+
+
+
+/* app和input字体 */
+#app,
+input {
+    font-family: Barlow, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif, microsoft uighur;
+}
+
+
+
+
+/* 滚动条整体样式，y轴和x轴宽度 */
+/* ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+} */
+
+/* 滚动条滑块样式 */
+/* ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: hsla(0, 0%, 50.2%, .38);
+} */
+
+/* 滚动条轨道样式 */
+/* ::-webkit-scrollbar-track {
+    background: transparent;
+    border-left: 1px solid hsla(0, 0%, 50.2%, .18);
+    background: var(--color-body-bg);
+} */
+
+
+
+
+
+/* a连接 */
+
+a {
+    color: var(--color-text);
+    /* a标签去下划线*/
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* 字体 */
+
+.fs10 {
+    font-size: 10px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs18 {
+    font-size: 18px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.fs30 {
+    font-size: 30px;
+}
+
+.fs40 {
+    font-size: 40px;
+}
+
+
+/* 字体粗体大小 */
+
+.fw600 {
+    font-weight: 600;
+}
+
+
+/* 图标 */
+.fa-pg {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all .3s linear;
+}
+
+.fa-pg:hover {
+    background-color: whitesmoke;
+    transform: scale(0.9);
+}
+
+
+/* 颜色 */
+.color0 {
+    color: var(--color-text)
+}
+
+.color1 {
+    color: #525252;
+}
+
+.color2 {
+    color: #696969;
+}
+
+.color3 {
+    color: #335eea;
+}
+
+.color4 {
+    color: #f2f2f4;
+}
+
+.color5 {
+    color: #1e1d1d;
+}
+
+.a-active {
+
+    color: #335eea;
+    font-weight: 600;
+    /* background-color: whitesmoke; */
+}
+
+/* 列表 */
+
+.ul {
+    padding: 0;
+    margin: 0;
+}
+
+.li {
+    list-style: none;
+}
+
+
+/* flex布局 */
+
+.r-flex {
+    display: flex;
+}
+
+.r-flex-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.r-flex-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.r-flex-4 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.r-flex-5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.r-flex-6 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.c-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-flex-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.c-flex-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 网格布局 */
+
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+
+/* 溢出隐藏，文本是否换行，文本长度超过宽度剩余用...代替 */
+
+.text-h-n-e {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* 文字和背景一起透明<1 */
+
+.opacity68 {
+    opacity: 0.68;
+}
+
+.opacity88 {
+    opacity: 0.88;
+}
+
+
+/* 背景颜色 */
+
+.bg1 {
+    background-color: #EAEFFD;
+}
+
+.bgc-1 {
+    background-color: whitesmoke;
+}
+
+.bgc2 {
+    background-color: #abb7dc;
+}
+
+
+/* 照片 */
+
+img {
+    cursor: pointer;
+    width: 100%;
+    /* aspect-ratio: 1/1; */
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+/* 边框圆角 */
+
+.br5 {
+    border-radius: 5px;
+}
+
+.br10 {
+    border-radius: 0.625rem;
+}
+
+.br15 {
+    border-radius: 15px;
+}
+
+.br20 {
+    border-radius: 20px;
+}
+
+.br25 {
+    border-radius: 25px;
+}
+
+
+/* 外边距 */
+
+.mg5 {
+    margin: 5px;
+}
+
+.mg10 {
+    margin: 10px;
+}
+
+.mg15 {
+    margin: 15px;
+}
+
+.mg20 {
+    margin: 20px;
+}
+
+.mg25 {
+    margin: 25px;
+}
+
+.mg30 {
+    margin: 30px;
+}
+
+.mg35 {
+    margin: 35px;
+}
+
+.mg40 {
+    margin: 40px;
+}
+
+.mg45 {
+    margin: 45px;
+}
+
+.mg10-0 {
+    margin: 10px 0;
+}
+
+.mg15-0 {
+    margin: 15px 0;
+}
+
+.mg20-0 {
+    margin: 20px 0;
+}
+
+.mg50-0 {
+    margin: 50px 0;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt100 {
+    margin-top: 100px;
+}
+
+.mb50 {
+    margin-bottom: 50px;
+}
+
+
+/* 内边距 */
+
+.pg5 {
+    padding: 5px;
+}
+
+.pg10 {
+    padding: 10px;
+}
+
+.pg15 {
+    padding: 15px;
+}
+
+.pg20 {
+    padding: 20px;
+}
+
+.pg25 {
+    padding: 25px;
+}
+
+.pg30 {
+    padding: 30px;
+}
+
+.pg35 {
+    padding: 35px;
+}
+
+.pg40 {
+    padding: 40px;
+}
+
+.pg45 {
+    padding: 45px;
+}
+
+.pg50 {
+    padding: 50px;
+}
+
+.pg0-5 {
+    padding: 5px 0px;
+}
+
+.pg5-10 {
+    padding: 10px 5px;
+}
+
+.pg10-15 {
+    padding: 10px 15px;
+}
+
+.pg15-20 {
+    padding: 20px 15px;
+}
+
+.pg20-25 {
+    padding: 25px 20px;
+}
+
+.pg25-30 {
+    padding: 30px 25px;
+}
+
+.pg30-35 {
+    padding: 35px 30px;
+}
+
+.pg35-40 {
+    padding: 40px 35px;
+}
+
+.pg40-45 {
+    padding: 45px 40px;
+}
+
+.pg45-50 {
+    padding: 50px 45px;
+}
+
+.pg5-0 {
+    padding: 0px 5px;
+}
+
+.pg10-5 {
+    padding: 10px 5px;
+}
+
+.pg5-10 {
+    padding: 5px 10px;
+}
+
+.pg15-10 {
+    padding: 15px 10px;
+}
+
+.pg20-15 {
+    padding: 15px 20px;
+}
+
+.pg25-20 {
+    padding: 20px 25px;
+}
+
+
+
+/* 动画 */
+/* 底部控制动画 */
+.shutter-in-bottom {
+    animation-name: shutter-in-bottom;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    /* shorthand 
+  animation: shutter-in-bottom 1s ease 0s 1 normal none;
+  */
+}
+
+@keyframes shutter-in-bottom {
+    0% {
+        transform: rotateX(100deg);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+}
+
+.shutter-out-bottom {
+    animation-name: shutter-out-bottom;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    /* shorthand 
+  animation: shutter-out-bottom 1s ease 0s 1 normal none;
+  */
+}
+
+@keyframes shutter-out-bottom {
+    0% {
+        transform: rotateX(0);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateX(-70deg);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+}
+
+
+
+.text-overflow{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    -webkit-line-clamp: 2;
+}

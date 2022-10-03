@@ -1,0 +1,130 @@
+/* flex布局 */
+
+@mixin flex($dir:row, $jc:center, $ai:center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+
+
+/*文本格式化，超出范围，显示省略号*/
+
+@mixin text-overflow($w:100%, $l:1) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    width: $w;
+    -webkit-line-clamp: $l;
+}
+
+
+/*定位  参数顺序：上右下左*/
+
+@mixin position($type:absolute, $t:null, $l:null, $b:null, $r:null) {
+    position: $type;
+
+    @if ($l !=""& & $l !=null) {
+        left: $l;
+    }
+
+    @if ($r !=""& & $r !=null) {
+        right: $r;
+    }
+
+    @if ($t !=""& & $t !=null) {
+        top: $t;
+    }
+
+    @if ($b !=""& & $b !=null) {
+        bottom: $b;
+    }
+}
+
+
+
+
+/* padding */
+
+@mixin padding($type:pg1, $tb:null, $lr:null, $t:null, $l:null, $b:null, $r:null) {
+    @if($type==pg1 && ($tb !=""&& $tb !=null) && ($lr !=""&& $lr !=null)) {
+        padding: $tb $lr;
+    }
+
+    @if($type==pg2 && ($t !=""& & $t !=null) &&($r !=""& & $r !=null)&&($b !=""& & $b !=null)&&($l !=""& & $l !=null)) {
+        padding: $t $r $b $l;
+    }
+
+    @if (($type==pl)&&($l !=""& & $l !=null)) {
+        padding-left: $l;
+    }
+
+    @if (($type==pr) && ($r !=""& & $r !=null)) {
+        padding-right: $r;
+    }
+
+    @if($type==pt) &&($t !=""& & $t !=null) {
+        padding-top: $t;
+    }
+
+    @if($type==pb)&& ($b !=""& & $b !=null) {
+        padding-bottom: $b;
+    }
+}
+
+
+
+
+/* margin */
+
+@mixin margin($type:mg1, $tb:null, $lr:null, $t:null, $l:null, $b:null, $r:null) {
+    @if($type==pg1 && ($tb !=""&& $tb !=null) && ($lr !=""&& $lr !=null)) {
+        margin: $tb $lr;
+    }
+
+    @if($type==mg2 && ($t !=""& & $t !=null) &&($r !=""& & $r !=null)&&($b !=""& & $b !=null)&&($l !=""& & $l !=null)) {
+        margin: $t $r $b $l;
+    }
+
+    @if (($type==ml)&&($l !=""& & $l !=null)) {
+        margin-left: $l;
+    }
+
+    @if (($type==mr) && ($r !=""& & $r !=null)) {
+        margin-right: $r;
+    }
+
+    @if($type==mt) &&($t !=""& & $t !=null) {
+        margin-top: $t;
+    }
+
+    @if($type==mb)&& ($b !=""& & $b !=null) {
+        margin-bottom: $b;
+    }
+}
+
+
+
+
+@mixin grid($grid:null, $columns:repeat(5, lfr), $rows:1fr, $gap:24px 21px) {
+    display: grid;
+    grid-template-columns: $columns !important;
+
+
+    @if($grid !=null && $grid !='') {
+        grid: $grid;
+    }
+
+    @else {
+        grid-template-columns: $columns;
+        gap: $gap;
+
+        @if($rows !=null && $rows !='') {
+            grid-template-rows: $rows;
+        }
+    }
+
+}
