@@ -1,12 +1,12 @@
 <!--
  * @Author: Topskys
  * @Date: 2022-06-13 10:11:14
- * @LastEditTime: 2022-10-03 10:00:13
+ * @LastEditTime: 2022-10-03 10:02:49
 -->
 # cloud-music
 ![Image text](https://github.com/Topskys/cloud-music/blob/main/src/assets/imgs/N%60G%608ACAFEJE2KCQPAWO0EI.png)
 
-![Image text](https://github.com/Topskys/cloud-music/blob/main/src/assets/imgs/8%5DQ3%40MBC8%7D)ABOJ005GDD~I.png)
+![Image text](https://github.com/Topskys/cloud-music/blob/main/src/assets/imgs/ABOJ005GDD~I.png)
 
 ![Image text](https://github.com/Topskys/cloud-music/blob/main/src/assets/imgs/0ZL15OAKL%5BWII7%40OS52T4BC.png)
 
